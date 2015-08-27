@@ -110,7 +110,7 @@ class Client
    * @param string $endpoint
    * @param string $options
    */
-  public function get($endpoint, $options = null) {
+  private function get($endpoint, $options = null) {
     return $this->apiCall("get", $endpoint, $options);
   }
 
@@ -119,8 +119,139 @@ class Client
    * @param string $endpoint
    * @param string $options
    */
-  public function post($endpoint, $options = null) {
+  private function post($endpoint, $options = null) {
     return $this->apiCall("post", $endpoint, $options);
+  }
+
+  /**
+   * Get Sports
+   */
+  public function getSports()
+  {
+    return $this->get("sports");
+  }
+
+  /**
+   * Get Leagues
+   * @param string $options
+   */
+  public function getLeagues($options)
+  {
+    return $this->get("leagues", $options);
+  }
+
+  /**
+   * Get Feed
+   * @param string $options
+   */
+  public function getFeed($options)
+  {
+    return $this->get("feed", $options);
+  }
+
+  /**
+   * Get Fixtures
+   * @param string $options
+   */
+  public function getFixtures($options)
+  {
+    return $this->get("fixtures", $options);
+  }
+
+  /**
+   * Get Odds
+   * @param string $options
+   */
+  public function getOdds($options)
+  {
+    return $this->get("odds", $options);
+  }
+
+  /**
+   * Get Parlay Odds
+   * @param string $options
+   */
+  public function getParlayOdds($options)
+  {
+    return $this->get("odds/parlay", $options);
+  }
+
+  /**
+   * Get Currencies
+   */
+  public function getCurrencies()
+  {
+    return $this->get("currencies");
+  }
+
+  /**
+   * Get Client Balance
+   */
+  public function getClientBalance()
+  {
+    return $this->get("client/balance");
+  }
+
+  /**
+   * Place Bet
+   * @param string $options
+   */
+  public function placeBet($options)
+  {
+    return $this->post("bets/place", $options);
+  }
+
+  /**
+   * Place Parlay Bet
+   * @param string $options
+   */
+  public function placeParlayBet($options)
+  {
+    return $this->post("bets/parlay", $options);
+  }
+
+  /**
+   * Get Line
+   * @param string $options
+   */
+  public function getLine($options)
+  {
+    return $this->get("line", $options);
+  }
+
+  /**
+   * Get Parlay Line
+   * @param string $options
+   */
+  public function getParlayLine($options)
+  {
+    return $this->post("line/parlay", $options);
+  }
+
+  /**
+   * Get Bets
+   * @param string $options
+   */
+  public function getBets($options)
+  {
+    return $this->get("bets", $options);
+  }
+
+  /**
+   * Get Inrunning
+   */
+  public function getInrunning()
+  {
+    return $this->get("inrunning");
+  }
+
+  /**
+   * Get Translations
+   * @param string $options
+   */
+  public function getTranslations($options)
+  {
+    return $this->get("translations", $options);
   }
 }
 ?>
