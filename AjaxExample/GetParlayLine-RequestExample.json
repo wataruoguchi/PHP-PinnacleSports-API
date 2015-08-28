@@ -1,0 +1,25 @@
+{
+  "oddsFormat": "Decimal",
+  "legs": [{
+    "uniqueLegId": "9CED620A-0E78-4FA4-A314-BDB1FF34E25A",
+    "eventId": "383910968",
+    "periodNumber": "0",
+    "legBetType": "SPREAD",
+    "team": "TEAM1",
+    "handicap": 0.75
+  }, {
+    "uniqueLegId": "F3E3528C658642F28001FFF3B3DA63AD",
+    "eventId": "383910969",
+    "periodNumber": "0",
+    "legBetType": "MONEYLINE",
+    "team": "TEAM1"
+  }, {
+    "uniqueLegId": "F3E3528C658642F28001FFF3B3DA63AA",
+    "eventId": "383910970",
+    "periodNumber": "0",
+    "legBetType": "TOTAL_POINTS",
+    "team": "TEAM1",
+    "side": "OVER",
+    "handicap": 2.75
+  }]
+}

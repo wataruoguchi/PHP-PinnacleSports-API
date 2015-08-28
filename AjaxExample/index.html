@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Test Post Methods</title>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <h1>Pinnacle Sports API v1.0</h1>
+  <h2>Ajax Example</h2>
+  <h3>Dynamic Result</h3>
+  <div id="refreshArea">Now Loading...</div>
+  <h3>Static Result</h3>
+  <div id="resultArea">Now it's not active by commenting out.</div>
+  <script src="js/jQuery.pinnacleSports.js"></script>
+  <script>
+  var pinnacleSports = $("body").pinnacleSports();
+  // -- Set result to #refreshArea --
+  // Initialize
+  var lastRefresh = 0;
+
+  // Executing every 5 seconds
+  setInterval(function(){
+    // lastRefresh will be uploaded.
+    var param = {"sportid": "29", "last": lastRefresh};
+    // Execute getFeed.
+    pinnacleSports.getFeed(param).done(function(result){
+      if(Object.keys(result.fd.sports).length > 0) {
+        // Refresh only when it gets data correctly.
+        $("#refreshArea").html("<h3>getFeed</h3><p>" + JSON.stringify(result) + "</p>");
+        lastRefresh = result.fd.fdTime;
+      }
+    }).fail(function(err){
+      // Error would happen once in a while. Don't worry, it is not a bug.
+      console.log("error!" + JSON.stringify(err));
+    });
+  }, 5000);
+
+  // -- Set result to #resultArea --
+  /**
+   * You can re-active below.
+   */
+  // pinnacleSports.getSports().done(function(result){
+  //   $("#resultArea").append("<h3>getSports</h3><p>" + JSON.stringify(result) + "</p>");
+  // }).fail(function(err){
+  //   console.log("error!" + JSON.stringify(err));
+  // });
+  //
+  // var param = {"sportid": "3"};
+  // pinnacleSports.getLeagues(param).done(function(result){
+  //   $("#resultArea").append("<h3>getLeagues</h3><p>" + JSON.stringify(result) + "</p>");
+  // }).fail(function(err){
+  //   console.log("error!" + JSON.stringify(err));
+  // });
+  //
+  // param = {"sportid": "29", "leagueid": "1728-1792"};
+  // pinnacleSports.getFeed(param).done(function(result){
+  //   $("#resultArea").append("<h3>getFeed</h3><p>" + JSON.stringify(result) + "</p>");
+  // }).fail(function(err){
+  //   console.log("error!" + JSON.stringify(err));
+  // });
+  //
+  // param = {"sportid": "29", "leagueids": "1728,1792,1817"};
+  // pinnacleSports.getFixtures(param).done(function(result){
+  //   $("#resultArea").append("<h3>getFixtures</h3><p>" + JSON.stringify(result) + "</p>");
+  // }).fail(function(err){
+  //   console.log("error!" + JSON.stringify(err));
+  // });
+  //
+  // param = {"sportid": "29", "leagueids": "1728,1792,1817"};
+  // pinnacleSports.getOdds(param).done(function(result){
+  //   $("#resultArea").append("<h3>getOdds</h3><p>" + JSON.stringify(result) + "</p>");
+  // }).fail(function(err){
+  //   console.log("error!" + JSON.stringify(err));
+  // });
+  //
+  // pinnacleSports.getCurrencies().done(function(result){
+  //   $("#resultArea").append("<h3>getCurrencies</h3><p>" + JSON.stringify(result) + "</p>");
+  // }).fail(function(err){
+  //   console.log("error!" + JSON.stringify(err));
+  // });
+  //
+  // pinnacleSports.getClientBalance().done(function(result){
+  //   $("#resultArea").append("<h3>getClientBalance</h3><p>" + JSON.stringify(result) + "</p>");
+  // }).fail(function(err){
+  //   console.log("error!" + JSON.stringify(err));
+  // });
+  //
+  // param = {"sportid": "29", "leagueId": "178", "eventId": "308195882", "betType": "SPREAD", "oddsFormat": "DECIMAL", "periodNumber": "0", "team": "TEAM1", "handicap": "-1"};
+  // pinnacleSports.getLine(param).done(function(result){
+  //   $("#resultArea").append("<h3>getLine</h3><p>" + JSON.stringify(result) + "</p>");
+  // }).fail(function(err){
+  //   console.log("error!" + JSON.stringify(err));
+  // });
+  //
+  // param = {"betlist": "settled", "fromDate": "2013-06-01", "toDate": "2013-06-05"};
+  // pinnacleSports.getBets(param).done(function(result){
+  //   $("#resultArea").append("<h3>getBets</h3><p>" + JSON.stringify(result) + "</p>");
+  // }).fail(function(err){
+  //   console.log("error!" + JSON.stringify(err));
+  // });
+  //
+  // pinnacleSports.getInrunning().done(function(result){
+  //   $("#resultArea").append("<h3>getInrunning</h3><p>" + JSON.stringify(result) + "</p>");
+  // }).fail(function(err){
+  //   console.log("error!" + JSON.stringify(err));
+  // });
+  //
+  // param = {"cultureCodes": "de-DE", "baseTexts": "Football"};
+  // pinnacleSports.getTranslations(param).done(function(result){
+  //   $("#resultArea").append("<h3>getTranslations</h3><p>" + JSON.stringify(result) + "</p>");
+  // }).fail(function(err){
+  //   console.log("error!" + JSON.stringify(err));
+  // });
+  //
+  // jQuery.getJSON("GetParlayLine-RequestExample.json").done(function(json){
+  //   pinnacleSports.getParlayLine(json).done(function(result){
+  //     $("#resultArea").append("<h3>getParlayLine</h3><p>" + JSON.stringify(result) + "</p>");
+  //   }).fail(function(err){
+  //     console.log("error!" + JSON.stringify(err));
+  //   });
+  // });
+  </script>
+</body>
+</html>
