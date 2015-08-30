@@ -101,8 +101,8 @@ class Client
     $response = curl_exec($httpChannel);
     curl_close($httpChannel);
 
-    // Return JSON
-    return $this->returnJsonFormat($response);
+    // Return JSON or XML
+    return $response;
   }
 
   /**

@@ -8,6 +8,9 @@ $client = new PinnacleSports\Client("USERID","PASSWORD");
 ```
 Just change the `USERID` and `PASSWORD` to yours, then it should work.
 
+* The Request Format: JSON
+* The Response Format: XML or JSON depends on API
+
 #### Resource
 ```
 /
