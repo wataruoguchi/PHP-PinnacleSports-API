@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     // generate function name by first argument of $_GET
     $funcName = $keys[0];
     try {
-      // Queue the request
+      // Queue the request
       echo $client->$funcName($_GET["data"]);
       return;
     } catch (Exception $e) {
@@ -39,7 +39,7 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
     // generate function name by first argument of $_POST
     $funcName = $_POST["operation"];
     try {
-      // Queue the request
+      // Queue the request
       echo $client->$funcName(json_encode($_POST["data"]));
       return;
     } catch (Exception $e) {
