@@ -4,17 +4,8 @@
  * @author Wataru Oguchi @watarutwt
  * GitHub: https://github.com/wataruoguchi/PHP-PinnacleSports-API
 */
-/* global define, require */
-(function(root, factory){
-	"use strict";
-	if (typeof define === "function" && define.amd) {
-		define(["jquery"], factory);
-	} else if (typeof exports === "object") {
-		factory(require("jquery"));
-	} else {
-		factory(root.jQuery);
-	}
-})(this, function($) {
+/* global jQuery */
+(function($) {
 	"use strict";
 
 	$.fn.pinnacleSports = function() {
@@ -114,4 +105,4 @@
 
 		return (this);
 	}; //$.fn.pinnacleSports
-});
+})(jQuery);
